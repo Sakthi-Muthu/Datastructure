@@ -1,0 +1,23 @@
+#include <stdio.h>
+ 
+int getMissingNumber(int *array, int size) {
+    int i, xorResult = 0, n = size + 1; 
+    /* Take the xor of all numbers between 1 to n */
+    for(i = 1; i <= n; i++){
+        xorResult = xorResult ^ i;
+    }
+    /* Take the xor of all array elements */
+    for(i = 0; i < size; i++){
+        xorResult = xorResult ^ array[i];
+    }
+   
+    return xorResult;
+}
+ 
+int main(){
+    int array[8] = {1, 4, 6, 2, 5, 8, 7, 9};
+  
+    printf("Missing Number : %d \n", getMissingNumber(array, 8));
+ 
+    return 0;
+}
